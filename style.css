@@ -6,3 +6,9 @@ p{
 color: coral;
 font-family: fantasy
 }
+ul {
+list-style-type: circle;
+}
+ol{
+list-style-type: upper-roman;
+}
