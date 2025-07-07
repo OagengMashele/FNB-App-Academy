@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Learning JavaScript</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="heading1">Hello</h1>
+        <p id="paragraph1">Everyone</p>
+        <p id="paragraph2"></p>
+
+        <p id = "output"></p>
+
+        <h1 onclick="if(this.innerHTML == 'JavaScript On Click'){this.innerHTML = 'Clicked'} else{this.innerHTML = 'JavaScript On Click'}">JavaScript On Click</h1>
+        
+        <h1 id="heading2" onclick="changeText()">JavaScript On Click By Function</h1>
+
+        <p id="addition"></p>
+
+        <label for="weather">Whats the weather like? </label>
+        <select id="weather">
+            <option value="Sunny">Sunny</option>
+            <option value="Windy">Windy</option>
+            <option value="Rainy"></option>
+            <option value="Cloudy"></option>
+            <option value="Snow"></option>
+        </select>
+        <a href="#" onclick="goBtnPressed()">GO</a>
+        <p id="outputText">Weather Advice :</p>
+
+        <script>
+            sumOfNumbers(5,5);
+            var text1;
+            var text2;
+            var text3;
+
+            var num1 = 5;
+            var num2 = 5;
+            var num3;
+
+            text1 = "HELLO KITTY";
+            text2 = "JavaScript";
+            text3 = "JS is awesome!";
+            document.getElementById("heading1").innerHTML = ("This is JavaScript");
+            document.getElementById("paragraph1").innerHTML = ("I am having fun!");
+
+            document.getElementById("heading1").innerHTML = (text1);
+            document.getElementById("paragraph1").innerHTML = (text2+ " " + text3);
+
+            document.getElementById("paragraph2").innerHTML = (num1 + " X " + num2 + "=" + num1*num2); 
+            
+            var userInputPassword = "008";
+            var actualPassword = "007";
+            if(userInputPassword == actualPassword){
+
+                document.getElementById("output").innerHTML = ("Correct password");
+            } else{
+                document.getElementById("output").innerHTML = ("Incorrect password. Try again");
+            }
+
+            function changeText() {
+                if(document.getElementById("heading2").innerHTML == 'JavaScript On Click By Function'){
+                    document.getElementById("heading2").innerHTML = 'Clicked By Function'
+                } else{
+                    document.getElementById("heading2").innerHTML = 'JavaScript On Click By Function'
+                }
+            }
+
+            document.getElementById("addition").innerHTML = sumOfNumbers(50, 50);
+
+            function sumOfNumbers(numA, numB){
+                return numA + numB;
+            }
+
+            function goBtnPressed(){
+                var weatherSelected = document.getElementById("weather").value;
+                var advise;
+
+                switch(weatherSelected){
+                    case "Sunny":
+                        advise = "Drink a=Water";
+                        break;
+                }
+                document.getElementById("outputText").innerHTML = "Weather Advice : " + advise;
+            }
+        </script>
+    </body>
+</html>
