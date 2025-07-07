@@ -8,18 +8,28 @@
     <body>
         <h1 id="heading1">Hello</h1>
         <p id="paragraph1">Everyone</p>
+        <p id="paragraph2"></p>
 
         <script>
             var text1;
             var text2;
+            var text3;
+
+            var num1 = 5;
+            var num2 = 5;
+            var num3;
 
             text1 = "HELLO KITTY";
             text2 = "JavaScript";
+            text3 = "JS is awesome!";
             document.getElementById("heading1").innerHTML = ("This is JavaScript");
             document.getElementById("paragraph1").innerHTML = ("I am having fun!");
 
             document.getElementById("heading1").innerHTML = (text1);
-            document.getElementById("paragraph1").innerHTML = (text2);
+            document.getElementById("paragraph1").innerHTML = (text2+ " " + text3);
+
+             document.getElementById("paragraph2").innerHTML = (num1 + " X " + num2 + "=" + num1*num2);  
+
         </script>
     </body>
 </html>
