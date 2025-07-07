@@ -16,7 +16,10 @@
         
         <h1 id="heading2" onclick="changeText()">JavaScript On Click By Function</h1>
 
+        <p id="addition"></p>
+
         <script>
+            sumOfNumbers(5,5);
             var text1;
             var text2;
             var text3;
@@ -51,6 +54,12 @@
                 } else{
                     document.getElementById("heading2").innerHTML = 'JavaScript On Click By Function'
                 }
+            }
+
+            document.getElementById("addition").innerHTML = sumOfNumbers(50, 50);
+
+            function sumOfNumbers(numA, numB){
+                return numA + numB;
             }
         </script>
     </body>
