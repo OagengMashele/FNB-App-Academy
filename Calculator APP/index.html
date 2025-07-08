@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Calculator App</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Simple Calculator</title>
 </head>
 <body>
   <h1>Calculator</h1>
-  <form>
-    <table>
-      <tr>
-        <td colspan="4">
-          <input type="text" name="display" readonly>
-        </td>
-      </tr>
-      <tr>
-        <td><input type="button" value="7"></td>
-        <td><input type="button" value="8"></td>
-        <td><input type="button" value="9"></td>
-        <td><input type="button" value="/"></td>
-      </tr>
-      <tr>
-        <td><input type="button" value="4"></td>
-        <td><input type="button" value="5"></td>
-        <td><input type="button" value="6"></td>
-        <td><input type="button" value="*"></td>
-      </tr>
-      <tr>
-        <td><input type="button" value="1"></td>
-        <td><input type="button" value="2"></td>
-        <td><input type="button" value="3"></td>
-        <td><input type="button" value="-"></td>
-      </tr>
-      <tr>
-        <td><input type="button" value="0"></td>
-        <td><input type="button" value="."></td>
-        <td><input type="button" value="="></td>
-        <td><input type="button" value="+"></td>
-      </tr>
-      <tr>
-        <td colspan="4"><input type="reset" value="Clear"></td>
-      </tr>
-    </table>
+  <form name="calc">
+    <input type="text" name="display" id="display" readonly><br><br>
+
+    <input type="button" value="7" onclick="append('7')">
+    <input type="button" value="8" onclick="append('8')">
+    <input type="button" value="9" onclick="append('9')">
+    <input type="button" value="/" onclick="append('/')"><br>
+
+    <input type="button" value="4" onclick="append('4')">
+    <input type="button" value="5" onclick="append('5')">
+    <input type="button" value="6" onclick="append('6')">
+    <input type="button" value="*" onclick="append('*')"><br>
+
+    <input type="button" value="1" onclick="append('1')">
+    <input type="button" value="2" onclick="append('2')">
+    <input type="button" value="3" onclick="append('3')">
+    <input type="button" value="-" onclick="append('-')"><br>
+
+    <input type="button" value="0" onclick="append('0')">
+    <input type="button" value="." onclick="append('.')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="+" onclick="append('+')"><br><br>
+
+    <input type="button" value="AC" onclick="clearDisplay()">
   </form>
+
+  <script>
+    function append(value) {
+      document.calc.display.value += value;
+    }
+
+    function clearDisplay() {
+      document.calc.display.value = '';
+    }
+
+    function calculate() {
+      try {
+        document.calc.display.value = eval(document.calc.display.value);
+      } catch {
+        document.calc.display.value = 'Error';
+      }
+    }
+  </script>
 </body>
 </html>
