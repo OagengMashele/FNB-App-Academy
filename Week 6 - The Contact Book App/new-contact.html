@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>New Contact Page</title>
+</head>
+<body>
+    <br>
+    <form id="editForm">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname">
+        <br>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname">
+        <br>
+        <label for="mobile">Mobile</label>
+        <input type="text" name="mobile" id="mobile">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <br>
+        <label for="avatar">Select A File For Picture</label>
+        <br>
+        <input type="file" name="avatar" id="avatar">
+        <br>
+        <button type="submit" id="submitForm">Add Contact</button>
+    </form>
+    <br>
+    <button id="homeLink" type="button" onclick="homeLink()">Home</button>
+
+    <script src="config.js"></script>
+    <script src="apiMethods.js"></script>
+
+    
+</body>
+</html>

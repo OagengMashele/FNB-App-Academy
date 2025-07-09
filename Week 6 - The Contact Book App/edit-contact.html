@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Edit Contact Page</title>
+</head>
+<body onload="getContact()">
+    <div id="avatarImage" onload=""></div>
+    <br>
+    <form id="editsForm">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" readonly>
+        <br>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname" readonly>
+        <br>
+        <label for="mobile">Mobile</label>
+        <input type="text" name="mobile" id="mobile" readonly>
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" readonly>
+        <br>
+        <label for="avatar" id="avatarLabel" hidden>Change Profile Picture</label>
+        <br>
+        <input type="file" name="avatar" id="avatar" hidden>
+        <br>
+        <br>
+        <button type="submit" id="submitEditForm" hidden>Edit Contact</button>
+    </form>
+    <br>
+    <br>
+    <button id="homeLink" type="button" onclick="homeLink()">Home</button>
+    <button id="editContact" type="button" onclick="editContact()">Edit</button>
+    <button id="deleteContact" type="button" onclick="homeLink()">Delete</button>
+
+    <script src="config.js"></script>
+    <script>
+        function homeLink() {
+    window.open("index.html", "_self");
+}
+
+function newContactLink() {
+    window.open("new-contact.html", "_self");
+}
+
+function editContactLink(id) {
+    window.open("edit-contact.html?id=" + id, "_self");
+}
+
+var id = getId();
+console.log(id);
+
+function getId() {
+    var url = window.location.href;
+    var position = url.search("=");
+    var id = url.slice(position + 1);
+    return id;
+}
+
+function getContact(){
+    var id = getId();
+    fetch(rootPath + "controller/get-contacts/?id=" + id).then(function(response) {
+        return response.json();
+    }).then(function(data){
+        console.log(data);
+        displayContactOutput(data);
+    })
+
+}
+
+function displayContactOutput(data) {
+
+    document.getElementById("avatarImage").innerHTML = `<img src="${rootPath}controller/uploads/${data[0].avatar}" width="200"/>`;
+    document.getElementById("firstname").value = `${data[0].firstname}`;
+    document.getElementById("lastname").value = `${data[0].lastname}`;
+    document.getElementById("mobile").value = `${data[0].mobile}`;
+    document.getElementById("email").value = `${data[0].email}`;
+}
+
+function editContact() {
+    document.getElementById("firstname").readOnly = false;
+    document.getElementById("lastname").readOnly = false;
+    document.getElementById("mobile").readOnly = false;
+    document.getElementById("email").readOnly = false;
+    document.getElementById("avatarLabel").hidden = false;
+    document.getElementById("avatar").hidden = false;
+    document.getElementById("submitEditForm").hidden = false;
+}
+
+document.getElementById("submitEditForm").addEventListener('click', submitEditForm);
+function submitEditForm(e) {
+    var id = getId();
+    e.preventDefault();
+
+    const form = new FormData(document.querySelector('#editsForm'));
+    form.append('apiKey', apiKey);
+    form.append('id', id);
+
+    fetch(rootPath + 'controller/edit-contact/', {
+        method: 'POST',
+        headers: {'Accept': 'application/json, *.*'},
+        body: form
+    })
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        if(data == "1") {
+            alert("Contact edited.");
+            homeLink();
+        } else {
+            alert(data);
+            homeLink();
+        }
+    })
+}
+
+document.getElementById("deleteContact").addEventListener('click', deleteContact);
+function deleteContact() {
+    var confirmDelete = confirm("Delete contact. Are You Sure?");
+    if(confirmDelete == true) {
+        fetch(rootPath + 'controller/delete-contact/?id=' + id).then(function(response){
+            return response.text();
+        }).then(function(data){
+            if(data == "1") {
+                homeLink();
+            } else {
+                alert(data);
+            }
+        })
+
+    }
+}
+
+    </script>
+    
+</body>
+</html>
