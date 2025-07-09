@@ -29,5 +29,21 @@ function submitForm(e) {
 
     const form = new FormData(document.querySelector('#editform'));
     form.append('apiKey', apiKey);
-    
+
+    fetch(rootPath + 'controller/insert-contact', {
+        method: 'POST',
+        headers: {'Accept': 'application/json, *.*'},
+        body: form
+    })
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        if(data == "1") {
+            alert("Contact added.");
+        } else {
+            alert(data);
+        }
+    })
+
 }
