@@ -74,6 +74,7 @@ function getId() {
 }
 
 function getContact(){
+    var id = getId();
     fetch(rootPath + "controller/get-contacts/?id=" + id).then(function(response) {
         return response.json();
     }).then(function(data){
@@ -99,19 +100,20 @@ function editContact() {
     document.getElementById("email").readOnly = false;
     document.getElementById("avatarLabel").hidden = false;
     document.getElementById("avatar").hidden = false;
-    document.getElementById("submitForm").hidden = false;
+    document.getElementById("submitEditForm").hidden = false;
 }
 
-document.getElementById("submitEditForm").addEventListener('click', submitForm);
+document.getElementById("submitEditForm").addEventListener('click', submitEditForm);
 function submitEditForm(e) {
+    var id = getId();
     e.preventDefault();
 
-    const form = new FormData(document.querySelector('#editForm'));
+    const form = new FormData(document.querySelector('#editsForm'));
     form.append('apiKey', apiKey);
     form.append('id', id);
 
-    fetch(rootPath + 'controller/insert-contact/', {
-        method: 'PUT',
+    fetch(rootPath + 'controller/edit-contact/', {
+        method: 'POST',
         headers: {'Accept': 'application/json, *.*'},
         body: form
     })
@@ -120,7 +122,7 @@ function submitEditForm(e) {
     })
     .then(function(data) {
         if(data == "1") {
-            alert("Contact added.");
+            alert("Contact edited.");
             homeLink();
         } else {
             alert(data);
