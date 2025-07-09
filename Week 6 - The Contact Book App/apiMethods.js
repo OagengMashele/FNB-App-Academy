@@ -24,13 +24,15 @@ function displayOutput(data) {
     document.getElementById("table").innerHTML = output;
 }
 
+document.getElementById("submitForm").addEventListener('click', submitForm);
+
 function submitForm(e) {
     e.preventDefault();
 
-    const form = new FormData(document.querySelector('#editform'));
+    const form = new FormData(document.querySelector('#editForm'));
     form.append('apiKey', apiKey);
 
-    fetch(rootPath + 'controller/insert-contact', {
+    fetch(rootPath + 'controller/insert-contact/', {
         method: 'POST',
         headers: {'Accept': 'application/json, *.*'},
         body: form
@@ -41,9 +43,18 @@ function submitForm(e) {
     .then(function(data) {
         if(data == "1") {
             alert("Contact added.");
+            homeLink();
         } else {
             alert(data);
+            homeLink();
         }
     })
+}
 
+function homeLink() {
+    window.open("index.html", "_self");
+}
+
+function newContactLink() {
+    window.open("new-contact.html", "_self");
 }
