@@ -23,3 +23,11 @@ function displayOutput(data) {
     output += "</table>";
     document.getElementById("table").innerHTML = output;
 }
+
+function submitForm(e) {
+    e.preventDefault();
+
+    const form = new FormData(document.querySelector('#editform'));
+    form.append('apiKey', apiKey);
+    
+}
