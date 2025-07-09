@@ -78,24 +78,16 @@ function getContact(){
         return response.json();
     }).then(function(data){
         console.log(data);
-        //displayOutput(data);
+        displayContactOutput(data);
     })
 
 }
 
 function displayContactOutput(data) {
-    output = "<table>";
 
-    for(item in data){
-        output += `
-            <tr onclick="editContactLink(${data[item].id})">
-                <td><img src="${rootPath}controller/uploads/${data[item].avatar}" width="40"/></td>
-                <td><h5>${data[item].firstname}</h5></td>
-                <td><h5>${data[item].lastname}</h5></td>
-            </tr>
-        `
-    }
-
-    output += "</table>";
-    document.getElementById("table").innerHTML = output;
+    document.getElementById("avatarImage").innerHTML = `<img src="${rootPath}controller/uploads/${data[0].avatar}" width="200"/>`;
+    document.getElementById("firstname").value = `${data[0].firstname}`;
+    document.getElementById("lastname").value = `${data[0].lastname}`;
+    document.getElementById("mobile").value = `${data[0].mobile}`;
+    document.getElementById("email").value = `${data[0].email}`;
 }
