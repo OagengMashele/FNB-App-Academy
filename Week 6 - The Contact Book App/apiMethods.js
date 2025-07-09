@@ -62,3 +62,10 @@ function newContactLink() {
 function editContactLink(id) {
     window.open("edit-contact.html?id=" + id, "_self");
 }
+
+function getId() {
+    var url = window.location.href;
+    var position = url.search("=");
+    var id = url.slice(position + 1);
+    return id;
+}
