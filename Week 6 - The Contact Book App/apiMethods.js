@@ -91,3 +91,14 @@ function displayContactOutput(data) {
     document.getElementById("mobile").value = `${data[0].mobile}`;
     document.getElementById("email").value = `${data[0].email}`;
 }
+
+function editContact() {
+    document.getElementById("firstname").readOnly = false;
+    document.getElementById("lastname").readOnly = false;
+    document.getElementById("mobile").readOnly = false;
+    document.getElementById("email").readOnly = false;
+    document.getElementById("avatarLabel").hidden = false;
+    document.getElementById("avatar").hidden = false;
+    document.getElementById("submitForm").hidden = false;
+
+}
