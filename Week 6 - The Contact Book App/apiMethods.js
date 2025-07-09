@@ -12,7 +12,7 @@ function displayOutput(data) {
 
     for(item in data){
         output += `
-            <tr>
+            <tr onclick="editContactLink(${data[item].id})">
                 <td><img src="${rootPath}controller/uploads/${data[item].avatar}" width="40"/></td>
                 <td><h5>${data[item].firstname}</h5></td>
                 <td><h5>${data[item].lastname}</h5></td>
@@ -57,4 +57,8 @@ function homeLink() {
 
 function newContactLink() {
     window.open("new-contact.html", "_self");
+}
+
+function editContactLink(id) {
+    window.open("edit-contact.html?id=" + id, "_self");
 }
