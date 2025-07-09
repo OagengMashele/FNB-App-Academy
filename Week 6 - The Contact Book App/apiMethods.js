@@ -13,10 +13,13 @@ function displayOutput(data) {
     for(item in data){
         output += `
             <tr>
-                <td><img scr="${rootPath}controller/uploads/${data[item].avatar}"/></td>
+                <td><img src="${rootPath}controller/uploads/${data[item].avatar}" width="40"/></td>
+                <td><h5>${data[item].firstname}</h5></td>
+                <td><h5>${data[item].lastname}</h5></td>
             </tr>
         `
-            
-        
     }
+
+    output += "</table>";
+    document.getElementById("table").innerHTML = output;
 }
