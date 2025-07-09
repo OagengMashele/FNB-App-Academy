@@ -8,27 +8,31 @@
     <br>
     <form id="editForm">
         <label for="firstname">First Name</label>
-        <input type="text" name="firstname" id="firstname">
+        <input type="text" name="firstname" id="firstname" readonly>
         <br>
         <label for="lastname">Last Name</label>
-        <input type="text" name="lastname" id="lastname">
+        <input type="text" name="lastname" id="lastname" readonly>
         <br>
         <label for="mobile">Mobile</label>
-        <input type="text" name="mobile" id="mobile">
+        <input type="text" name="mobile" id="mobile" readonly>
         <br>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" readonly>
         <br>
-        <label for="avatar">Select A File For Picture</label>
-        <input type="file" name="avatar" id="avatar">
+        <label for="avatar" id="avatarLabel" hidden>Change Profile Picture</label>
         <br>
-        <button type="submit" id="submitForm">Add Contact</button>
+        <input type="file" name="avatar" id="avatar" hidden>
+        <br>
+        <button type="submit" id="submitForm" hidden>Edit Contact</button>
     </form>
     <br>
+    <br>
     <button id="homeLink" type="button" onclick="homeLink()">Home</button>
+    <button id="editContact" type="button" onclick="homeLink()">Edit</button>
+    <button id="deleteContact" type="button" onclick="homeLink()">Delete</button>
 
     <script src="config.js"></script>
-    <script  src="apiMethods.js"></script>
+    <script src="apiMethods.js"></script>
 
     
 </body>
