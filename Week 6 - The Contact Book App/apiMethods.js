@@ -100,5 +100,31 @@ function editContact() {
     document.getElementById("avatarLabel").hidden = false;
     document.getElementById("avatar").hidden = false;
     document.getElementById("submitForm").hidden = false;
+}
 
+document.getElementById("submitEditForm").addEventListener('click', submitForm);
+function submitEditForm(e) {
+    e.preventDefault();
+
+    const form = new FormData(document.querySelector('#editForm'));
+    form.append('apiKey', apiKey);
+    form.append('id', id);
+
+    fetch(rootPath + 'controller/insert-contact/', {
+        method: 'PUT',
+        headers: {'Accept': 'application/json, *.*'},
+        body: form
+    })
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        if(data == "1") {
+            alert("Contact added.");
+            homeLink();
+        } else {
+            alert(data);
+            homeLink();
+        }
+    })
 }
