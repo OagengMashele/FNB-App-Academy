@@ -6,3 +6,17 @@ function fetchContacts() {
         displayOutput(data);
     })
 }
+
+function displayOutput(data) {
+    output = "<table>";
+
+    for(item in data){
+        output += `
+            <tr>
+                <td><img scr="${rootPath}controller/uploads/${data[item].avatar}"/></td>
+            </tr>
+        `
+            
+        
+    }
+}
