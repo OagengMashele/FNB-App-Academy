@@ -51,7 +51,7 @@ function submitForm(e) {
     })
 }
 
-function homeLink() {
+        function homeLink() {
     window.open("index.html", "_self");
 }
 
@@ -129,4 +129,21 @@ function submitEditForm(e) {
             homeLink();
         }
     })
+}
+
+document.getElementById("deleteContact").addEventListener('click', deleteContact);
+function deleteContact() {
+    var confirmDelete = confirm("Delete contact. Are You Sure?");
+    if(confirmDelete == true) {
+        fetch(rootPath + 'controller/delete-contact/?id=' + id).then(function(response){
+            return response.text();
+        }).then(function(data){
+            if(data == "1") {
+                homeLink();
+            } else {
+                alert(data);
+            }
+        })
+
+    }
 }
