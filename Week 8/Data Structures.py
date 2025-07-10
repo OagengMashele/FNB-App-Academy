@@ -77,3 +77,16 @@ diff_set = set1.difference(set2)
 difff_set = set2.difference(set1)
 print(diff_set)
 print(difff_set)
+
+#Dictionaries
+#collection of jkey value pairs
+
+my_dict = {"apple": 2, "banana": 6, "orange": 9}
+print(my_dict)
+print(my_dict["apple"])
+
+my_dict["cherry"] = 5
+print(my_dict)
+
+my_dict["apple"] = 1
+print(my_dict)
