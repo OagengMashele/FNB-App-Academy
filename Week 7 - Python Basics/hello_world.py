@@ -48,4 +48,14 @@ print(x**y)
 
 string1 = "hello"
 string2 = "world"
-print(string1+ " " +string2)
+print(string1+ " " +string2) 
+
+#Control Statements(Decisions)
+
+num = 10
+if num > 0:
+    print("This number is greater than 0")
+elif num == 0 :
+    print("this number is 0")
+else: 
+    print("This number is less than 0")
