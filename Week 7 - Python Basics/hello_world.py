@@ -22,3 +22,9 @@ num1= 5.5
 num1Type = type(num1)
 print(num1)
 print(num1Type)
+
+#Variables
+#variables start with underscores or letters
+my_variable = "this is a valid variable name"
+
+
