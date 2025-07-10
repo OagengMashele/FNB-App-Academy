@@ -9,3 +9,7 @@ multilineString = """This is a
 multiLineString"""
 print(message)
 print(multilineString)
+
+print(message[0])
+print(message[-1])
+print(len(message))
