@@ -28,3 +28,20 @@ print(num1Type)
 my_variable = "this is a valid variable name"
 
 
+#Operators On Numeric data
+#Addition +
+#Subtraction -
+#Multiplication *
+#Division /
+#Modulus %
+#Exponent **
+x = 10
+y = 2
+print(x+y)
+print(x-y)
+print(x*y)
+print(x/y)
+print(x%y)
+print(x**y)
+
+
