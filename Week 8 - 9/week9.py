@@ -1,14 +1,14 @@
-#Functions and Modules
+#Functions
 
 def greetings(name):
     print(f"Hello, {name}")
     
 greetings("Testing Function")
 
-def add(a, b):
+def adds(a, b):
     return a + b
 
-result = add(2, 10)
+result = adds(2, 10)
 print(result)
 
 def factorial(n):
