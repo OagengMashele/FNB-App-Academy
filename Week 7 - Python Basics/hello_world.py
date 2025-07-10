@@ -37,12 +37,11 @@ my_variable = "this is a valid variable name"
 #Exponent **
 x = 10
 y = 2
-print(x+y) 
-print(x-y)
-print(x*y)
-print(x/y)
-print(x%y)
-print(x**y)
+print(x + y) 
+print(x - y)
+print(x * y)
+print(x / y)
+print(x % y)
 
 #Operators On String data 
 
@@ -59,3 +58,16 @@ elif num == 0 :
     print("this number is 0")
 else: 
     print("This number is less than 0")
+    
+    
+#LOOPS(repeats)
+
+my_list = ["a","b","c"]
+for letter in my_list:
+    print(letter)
+ 
+ #while loop   
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
