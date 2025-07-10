@@ -37,12 +37,15 @@ my_variable = "this is a valid variable name"
 #Exponent **
 x = 10
 y = 2
-print(x+y)
+print(x+y) 
 print(x-y)
 print(x*y)
 print(x/y)
 print(x%y)
 print(x**y)
 
-#Operators On String data
+#Operators On String data 
 
+string1 = "hello"
+string2 = "world"
+print(string1+ " " +string2)
